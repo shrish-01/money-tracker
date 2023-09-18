@@ -33,4 +33,6 @@ app.get('/api/transactions', async (req, res) => {
   res.json(transactions);
 });
 
-app.listen(4000);
+// app.listen(4000);
+
+export default app;
