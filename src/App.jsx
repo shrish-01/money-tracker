@@ -56,12 +56,15 @@ function App() {
     balance += transaction.price;
   }
 
+  balance = balance.toFixed(2);
+  const fraction = balance.split('.')[1];
+
   return (
     <main>
-      <h1 className={"text-5xl font-semibold text-center color-white flex justify-center " + ((balance < 0) ? "text-red-500" : "text-green-500")}>${balance}<span className='text-xs mt-1'>.00</span></h1>
+      <h1 className={"text-5xl font-semibold text-center color-white flex justify-center " + ((balance < 0) ? "text-red-500" : "text-green-500")}>${balance.split('.')[0]}<span className='text-xs mt-1'>.{fraction}</span></h1>
       {/* The form element */}
       <form onSubmit={addNewTransaction} className='mt-6'>
-        <div className="basic flex gap-2 mb-2">
+        <div className="basic flex flex-col md:flex-row gap-2 mb-2">
           <input type="text"
             value={name}
             onChange={ev => setName(ev.target.value)}
